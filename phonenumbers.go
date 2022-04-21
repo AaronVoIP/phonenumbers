@@ -16,14 +16,14 @@ func SplitRange(input string, deliminator string) (int, int) {
 
 }
 
-func ListRange(firstnum int, secondnum int) {
+//returns slice of each number between two number ranges
+//can be formatted 02080668800 - 02080668850 or "02080668800 - 850"
+func ListRange(firstnum int, secondnum int) []string {
 
 	var divideby int
-	var output string
+	var output []string
 
 	if secondnum < 9999 {
-
-		fmt.Println("Second number is shorthand")
 
 		if DigitCount(secondnum) == 2 {
 			divideby = 100
@@ -33,29 +33,23 @@ func ListRange(firstnum int, secondnum int) {
 			divideby = 10000
 		}
 
-		if divideby == 0 {
-			return
-		}
-
 		base := firstnum / divideby
-		fmt.Println("Base number", base)
-
 		startingdigits := RetrieveTrailingDigits(firstnum, DigitCount(secondnum))
-		fmt.Println("Starting Number", startingdigits)
 
 		for count := ConverttoE164int(startingdigits); count <= secondnum; count++ {
-			output = fmt.Sprintf("%v%v", base, count)
-			fmt.Println(output)
+			output = append(output, fmt.Sprintf("%v%v", base, count))
 		}
+		return output
 
 	} else {
-		fmt.Println("Second number is a full number")
 
 		for count := firstnum; count <= secondnum; count++ {
-			fmt.Println(count)
+			output = append(output, fmt.Sprint(count))
 		}
+		return output
 
 	}
+
 }
 
 //Retrieves the trailing digits of a number in string format
