@@ -16,6 +16,8 @@ import (
 
 func main() {
 
+	numbers := "02080668850 - 02080668862"
+
 	first, second := phonenumbers.SplitRange(numbers, "-")
 	fmt.Println("First number", first)
 	fmt.Println("Second number", second)
