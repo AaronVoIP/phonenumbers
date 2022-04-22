@@ -27,6 +27,20 @@ func TestListRangeShort(t *testing.T) {
 		t.Error("Our result should be a slice of numbers, we got", result)
 	}
 
+	result = ListRange(44208066850, 77)
+
+	if result[17] != "44208066867" {
+		t.Error("Our result should be a slice of numbers, we got", result)
+	}
+
+	if result[25] != "44208066875" {
+		t.Error("Our result should be a slice of numbers, we got", result)
+	}
+
+	if result[27] != "44208066877" {
+		t.Error("Our result should be a slice of numbers, we got", result)
+	}
+
 }
 
 func TestListRangeLong(t *testing.T) {
