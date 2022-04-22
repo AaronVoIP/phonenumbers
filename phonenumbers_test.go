@@ -13,32 +13,50 @@ var (
 
 func TestListRangeShort(t *testing.T) {
 
-	result := ListRange(44208066850, 877)
+	result := ListRange(44208066850, 7900)
+
+	if result[5] != "44208066855" {
+		t.Error("Our result should be a slice of numbers, we got", result[5])
+	}
+
+	if result[80] != "44208066930" {
+		t.Error("Our result should be a slice of numbers, we got", result[80])
+	}
+
+	if result[100] != "44208066950" {
+		t.Error("Our result should be a slice of numbers, we got", result[100])
+	}
+
+	if result[1000] != "44208067850" {
+		t.Error("Our result should be a slice of numbers, we got", result[1000])
+	}
+
+	result = ListRange(44208066850, 877)
 
 	if result[17] != "44208066867" {
-		t.Error("Our result should be a slice of numbers, we got", result)
+		t.Error("Our result should be a slice of numbers, we got", result[17])
 	}
 
 	if result[25] != "44208066875" {
-		t.Error("Our result should be a slice of numbers, we got", result)
+		t.Error("Our result should be a slice of numbers, we got", result[25])
 	}
 
 	if result[27] != "44208066877" {
-		t.Error("Our result should be a slice of numbers, we got", result)
+		t.Error("Our result should be a slice of numbers, we got", result[27])
 	}
 
 	result = ListRange(44208066850, 77)
 
 	if result[17] != "44208066867" {
-		t.Error("Our result should be a slice of numbers, we got", result)
+		t.Error("Our result should be a slice of numbers, we got", result[17])
 	}
 
 	if result[25] != "44208066875" {
-		t.Error("Our result should be a slice of numbers, we got", result)
+		t.Error("Our result should be a slice of numbers, we got", result[25])
 	}
 
 	if result[27] != "44208066877" {
-		t.Error("Our result should be a slice of numbers, we got", result)
+		t.Error("Our result should be a slice of numbers, we got", result[27])
 	}
 
 }
@@ -48,15 +66,15 @@ func TestListRangeLong(t *testing.T) {
 	result := ListRange(44208066850, 44208066877)
 
 	if result[17] != "44208066867" {
-		t.Error("Our result should be a slice of numbers, we got", result)
+		t.Error("Our result should be a slice of numbers, we got", result[17])
 	}
 
 	if result[25] != "44208066875" {
-		t.Error("Our result should be a slice of numbers, we got", result)
+		t.Error("Our result should be a slice of numbers, we got", result[25])
 	}
 
 	if result[27] != "44208066877" {
-		t.Error("Our result should be a slice of numbers, we got", result)
+		t.Error("Our result should be a slice of numbers, we got", result[27])
 	}
 
 }
