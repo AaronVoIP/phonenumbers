@@ -11,6 +11,42 @@ var (
 	testDataNumberInt    = 442080668866
 )
 
+func TestListRangeShort(t *testing.T) {
+
+	result := ListRange(44208066850, 877)
+
+	if result[17] != "44208066867" {
+		t.Error("Our result should be a slice of numbers, we got", result)
+	}
+
+	if result[25] != "44208066875" {
+		t.Error("Our result should be a slice of numbers, we got", result)
+	}
+
+	if result[27] != "44208066877" {
+		t.Error("Our result should be a slice of numbers, we got", result)
+	}
+
+}
+
+func TestListRangeLong(t *testing.T) {
+
+	result := ListRange(44208066850, 44208066877)
+
+	if result[17] != "44208066867" {
+		t.Error("Our result should be a slice of numbers, we got", result)
+	}
+
+	if result[25] != "44208066875" {
+		t.Error("Our result should be a slice of numbers, we got", result)
+	}
+
+	if result[27] != "44208066877" {
+		t.Error("Our result should be a slice of numbers, we got", result)
+	}
+
+}
+
 func TestSplitRange(t *testing.T) {
 
 	firstresult, secondresult := SplitRange(testDataLongRange, "-")
