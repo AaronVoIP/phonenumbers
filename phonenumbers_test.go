@@ -130,3 +130,41 @@ func TestConverttoE164(t *testing.T) {
 	}
 
 }
+
+func TestISOGeoData(t *testing.T) {
+
+	response, _ := GeoData(44)
+
+	for _, v := range response.([]string) {
+
+		if v != "United Kingdom" {
+			t.Errorf("Should have United Kingdom as response, got %v", response)
+		}
+
+	}
+
+}
+
+func TestNameGeoData(t *testing.T) {
+
+	response, _ := GeoData("United Kingdom")
+
+	for _, v := range response.([]int) {
+
+		if v != 44 {
+			t.Errorf("Should have 44 as response, got %v", response)
+		}
+
+	}
+
+}
+
+func TestNilGeoData(t *testing.T) {
+
+	response, _ := GeoData(nil)
+
+	if len(response.(map[string]int)) == 0 {
+		t.Error("Map response is empty")
+	}
+
+}
