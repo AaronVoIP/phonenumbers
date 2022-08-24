@@ -16,19 +16,24 @@ import (
 
 func main() {
 
-	numbers := "02080668850 - 02080668862"
+	numbers :=
 
-	first, second := phonenumbers.SplitRange(numbers, "-")
+	//Split a string of numbers
+	first, second := phonenumbers.SplitRange("02080668850 - 02080668862", "-")
 	fmt.Println("First number", first)
 	fmt.Println("Second number", second)
 
-	fmt.Println("Convert a number to UK e164:", phonenumbers.ConverttoE164("01582123456"))
+	//Convert a number to UK e164 (441582123456):
+	phonenumbers.ConverttoE164("01582123456")
 
-	fmt.Println("Retrieve the last three trailing digits of a number:", phonenumbers.RetrieveTrailingDigits(first, 3))
+	//Retrieve the last X trailing digits of a number
+	phonenumbers.RetrieveTrailingDigits(02080668850, 3)
 
-	fmt.Println("Count the digits in a number:", phonenumbers.DigitCount(first))
-
-	fmt.Println("Break our original range into individual numbers:", phonenumbers.ListRange(first, second))
+	//Count the digits in a number
+	phonenumbers.DigitCount("02080668850")
+	
+	//return all the numbers in the middle of this range
+	phonenumbers.ListRange(02080668850, 02080668862)
 	
 	//Return map of countries and their relevant prefixes 
 	GeoData(nil)
