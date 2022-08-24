@@ -29,6 +29,16 @@ func main() {
 	fmt.Println("Count the digits in a number:", phonenumbers.DigitCount(first))
 
 	fmt.Println("Break our original range into individual numbers:", phonenumbers.ListRange(first, second))
+	
+	//Return map of countries and their relevant prefixes 
+	GeoData(nil)
+	
+	//Return prefix of a specific location
+	GeoData("United Kingdom")
+	
+	//Return the name of country based of prefix provided
+	GeoData(44)
+	
 
 }
 ```
